@@ -1,0 +1,281 @@
+{
+    "name": "1. Register New",
+    "event": [
+        {
+            "listen": "test",
+            "script": {
+                "exec": [
+                    ""
+                ],
+                "type": "text/javascript"
+            }
+        }
+    ],
+    "request": {
+        "method": "POST",
+        "header": [
+            {
+                "key": "Accept",
+                "value": "application/json"
+            }
+        ],
+        "body": {
+            "mode": "formdata",
+            "formdata": [
+                {
+                    "key": "name",
+                    "value": "User 1",
+                    "description": "Customer Name [Required]",
+                    "type": "text"
+                },
+                {
+                    "key": "phone",
+                    "value": "08131929292",
+                    "description": "Customer Mobile Number [Required]",
+                    "type": "text"
+                },
+                {
+                    "key": "email",
+                    "value": "y@y.c",
+                    "description": "Customer Email [Required, Email Format]",
+                    "type": "text"
+                },
+                {
+                    "key": "id_type",
+                    "value": "1",
+                    "description": "ID Type [Required, Exist on ID Type Master Data]",
+                    "type": "text"
+                },
+                {
+                    "key": "id_number",
+                    "value": "1",
+                    "description": "ID Card Number [Required, Numeric,  Unique with id_type, 6-20 Digits]",
+                    "type": "text"
+                },
+                {
+                    "key": "password",
+                    "value": "P4ssword",
+                    "description": "New Password [Required, 6-20 Characters]",
+                    "type": "text"
+                },
+                {
+                    "key": "referral_code",
+                    "value": "",
+                    "description": "Referral Code",
+                    "type": "text"
+                }
+            ]
+        },
+        "url": {
+            "raw": "{{url}}/v2/register/new",
+            "host": [
+                "{{url}}"
+            ],
+            "path": [
+                "v2",
+                "register",
+                "new"
+            ]
+        }
+    },
+    "response": [
+        {
+            "name": "Wrong Activation Code",
+            "originalRequest": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "name",
+                            "value": "User 2",
+                            "description": "Customer Name<br>\n[Required]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone",
+                            "value": "6281310645074",
+                            "description": "Customer Mobile Number<br>\n[Required, Numeric, At least 6 Digits]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "user2@gmail.com",
+                            "description": "Customer Email<br>\n[Required, Email Format]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "id_type",
+                            "value": "1",
+                            "description": "ID Type<br>\n[Required, UUID, Exist on ID Type Master Data]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "id_number",
+                            "value": "1010101010",
+                            "description": "ID Card Number<br>\n[Required, Numeric,  Unique with id_type, 6-20 Digits]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Passw0rd",
+                            "description": "New Password<br>\n[Required, 6-20 Characters]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone_verification_code",
+                            "value": "6023",
+                            "description": "Verification Code (From <b>\"Send Phone Verification Code\"</b> API)<br>\n[Required, 4 Digits, Numeric]",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{url}}register/new",
+                    "host": [
+                        "{{url}}register"
+                    ],
+                    "path": [
+                        "new"
+                    ]
+                }
+            },
+            "status": "Unprocessable Entity",
+            "code": 422,
+            "_postman_previewlanguage": "json",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json; charset=utf-8"
+                },
+                {
+                    "key": "Server",
+                    "value": "Microsoft-IIS/10.0"
+                },
+                {
+                    "key": "X-SourceFiles",
+                    "value": "=?UTF-8?B?RDpcUHJvamVjdHNcU0JMIC0gVHJ1c3RDYXJkTWFuYWdlbWVudFxUcnVzdENhcmRNYW5hZ2VtZW50XFRydXN0Q2FyZE1hbmFnZW1lbnQuQXBpXHJlZ2lzdGVyXG5ldw==?="
+                },
+                {
+                    "key": "X-Powered-By",
+                    "value": "ASP.NET"
+                },
+                {
+                    "key": "Date",
+                    "value": "Thu, 08 Nov 2018 09:05:10 GMT"
+                },
+                {
+                    "key": "Content-Length",
+                    "value": "72"
+                }
+            ],
+            "cookie": [],
+            "body": "{\n    \"status\": \"error\",\n    \"status_code\": 422,\n    \"message\": \"Wrong verification code\"\n}"
+        },
+        {
+            "name": "Register Success",
+            "originalRequest": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "name",
+                            "value": "User 2",
+                            "description": "Customer Name<br>\n[Required]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone",
+                            "value": "6281310645074",
+                            "description": "Customer Mobile Number<br>\n[Required, Numeric, At least 6 Digits]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "email",
+                            "value": "user2@gmail.com",
+                            "description": "Customer Email<br>\n[Required, Email Format]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "id_type",
+                            "value": "1",
+                            "description": "ID Type<br>\n[Required, UUID, Exist on ID Type Master Data]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "id_number",
+                            "value": "1010101010",
+                            "description": "ID Card Number<br>\n[Required, Numeric,  Unique with id_type, 6-20 Digits]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "password",
+                            "value": "Passw0rd",
+                            "description": "New Password<br>\n[Required, 6-20 Characters]",
+                            "type": "text"
+                        },
+                        {
+                            "key": "phone_verification_code",
+                            "value": "6024",
+                            "description": "Verification Code (From <b>\"Send Phone Verification Code\"</b> API)<br>\n[Required, 4 Digits, Numeric]",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{url}}register/new",
+                    "host": [
+                        "{{url}}register"
+                    ],
+                    "path": [
+                        "new"
+                    ]
+                }
+            },
+            "status": "OK",
+            "code": 200,
+            "_postman_previewlanguage": "json",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json; charset=utf-8"
+                },
+                {
+                    "key": "Server",
+                    "value": "Microsoft-IIS/10.0"
+                },
+                {
+                    "key": "X-SourceFiles",
+                    "value": "=?UTF-8?B?RDpcUHJvamVjdHNcU0JMIC0gVHJ1c3RDYXJkTWFuYWdlbWVudFxUcnVzdENhcmRNYW5hZ2VtZW50XFRydXN0Q2FyZE1hbmFnZW1lbnQuQXBpXHJlZ2lzdGVyXG5ldw==?="
+                },
+                {
+                    "key": "X-Powered-By",
+                    "value": "ASP.NET"
+                },
+                {
+                    "key": "Date",
+                    "value": "Thu, 08 Nov 2018 09:06:07 GMT"
+                },
+                {
+                    "key": "Content-Length",
+                    "value": "195"
+                }
+            ],
+            "cookie": [],
+            "body": "{\n    \"status\": \"success\",\n    \"status_code\": 200,\n    \"message\": \"Register Success!\",\n    \"data\": {\n        \"api_token\": \"\",\n        \"id\": 462533,\n        \"code\": \"3000001849\",\n        \"barcode\": \"3000001849\",\n        \"name\": \"User 2\",\n        \"active\": true,\n        \"total_expense\": 0\n    }\n}"
+        }
+    ]
+},
